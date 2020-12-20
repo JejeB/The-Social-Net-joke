@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ApigetService } from '../apiget.service';
 
 @Component({
   selector: 'cnt-scroller',
   template: `
  
   <cnt-joke></cnt-joke>
-  <cnt-joke></cnt-joke>
-  <cnt-joke></cnt-joke>
-  <cnt-joke></cnt-joke>
-  <cnt-joke></cnt-joke>
+  
 
   `,
   styles: [
@@ -16,7 +14,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScrollerComponent implements OnInit {
 
-  constructor() { }
+  Jokes:any=[]
+  constructor(public apiget: ApigetService) { 
+    
+  }
 
   ngOnInit(): void {
   }
