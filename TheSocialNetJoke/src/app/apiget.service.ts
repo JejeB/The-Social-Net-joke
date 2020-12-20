@@ -13,7 +13,7 @@ export class ApigetService {
    constructor(private httpClient: HttpClient) { }
 
 
-  getUsers(id): Observable<Joke> {
+  getJokes(): Observable<Joke> {
     return this.httpClient.get<Joke>(this.myUrl)
     
   }
