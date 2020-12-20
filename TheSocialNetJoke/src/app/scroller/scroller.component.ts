@@ -3,9 +3,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'cnt-scroller',
   template: `
-    <p>
-      scroller works!
-    </p>
+ 
+  <cnt-joke></cnt-joke>
+  <cnt-joke></cnt-joke>
+  <cnt-joke></cnt-joke>
+  <cnt-joke></cnt-joke>
+  <cnt-joke></cnt-joke>
+
   `,
   styles: [
   ]
