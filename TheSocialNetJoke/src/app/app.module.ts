@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { AppComponent } from './app.component';
 import { ScrollerComponent } from './scroller/scroller.component';
@@ -22,7 +21,6 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ScrollingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

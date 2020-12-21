@@ -4,7 +4,7 @@ import { Joke } from './joke';
 @Component({
   selector: 'cnt-joke',
   template: `
-  <div class="card jokeCard">
+  <div class="card">
   <div class="card-body">
   {{thejoke.joke}}
   </div>
@@ -17,7 +17,7 @@ import { Joke } from './joke';
   </div>
 </div>
   `,
-  styles: ['.emoji{margin: inherit;} .jokeCard{margin-top: 1rem;}'
+  styles: ['.emoji{margin: inherit;}'
   ]
 })
 export class JokeComponent implements OnInit {
