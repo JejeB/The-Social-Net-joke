@@ -10,7 +10,7 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
   template: `
   
   
-  <cdk-virtual-scroll-viewport itemSize="10" class="fact-scroll-viewport" style="height: 200%">
+  <cdk-virtual-scroll-viewport itemSize="100" class="fact-scroll-viewport" style="height: 200%">
   <div  *cdkVirtualFor="let currentJoke of dataSource">
     <div *ngIf="currentJoke">
       <cnt-joke [thejoke]="currentJoke">
@@ -30,51 +30,13 @@ export class ScrollerComponent implements OnInit {
 
   dataSource: JokesDataSource;
 
-  jokestab: any =[
-    {
-      id: 1,
-      error: false,
-      category:"string",
-      joke:"C'est un mec il s'appelle niet et son pote arrive et il dit coucou niet !",
-      lang:"eng"
-    },
-    {
-      id: 2,
-      error: false,
-      category:"string",
-      joke:"C'est un mec il s'appelle niet et son pote arrive et il dit coucou niet !",
-      lang:"eng"
-    },
-    {
-      id: 3,
-      error: false,
-      category:"string",
-      joke:"C'est un mec il s'appelle niet et son pote arrive et il dit coucou niet !",
-      lang:"eng"
-    },
-  ];
+  
   constructor(public apiget: ApigetService) { 
     this.dataSource=  new JokesDataSource(apiget);
   }
 
   ngOnInit(): void {
   
-    
-   this
-  }
-
-  fetchJokes(){
-    this.apiget.getJokes().subscribe(data =>{
-      for(const d of (data.jokes as any)){
-        this.jokestab.push({
-          id: d.id,
-          error: d.error,
-          category: d.category,
-          joke: d.joke,
-          lang:d.lang
-        })
-      }
-    })
   }
 
 }
