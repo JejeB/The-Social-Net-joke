@@ -40,12 +40,6 @@ export class ScrollerComponent implements OnInit {
       category:"string",
       joke:"C'est un mec il s'appelle niet et son pote arrive et il dit coucou niet !",
       lang:"eng"
-    },{
-      id: 3,
-      error: false,
-      category:"string",
-      joke:"C'est un mec il s'appelle niet et son pote arrive et il dit coucou niet !",
-      lang:"eng"
     },
   ];
   constructor(public apiget: ApigetService) { 
