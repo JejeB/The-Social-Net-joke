@@ -1,16 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ApigetService } from '../apiget.service';
 import {Joke} from '../joke/joke'
+import { CollectionViewer, DataSource } from '@angular/cdk/collections';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'cnt-scroller',
   template: `
   
-  <cdk-virtual-scroll-viewport itemSize="4" style="height: 250px">
-
-
-  <cnt-joke *cdkVirtualFor="let currentJoke of jokestab" [thejoke]="currentJoke">
-  </cnt-joke>
+  
+  <cdk-virtual-scroll-viewport itemSize="100" class="fact-scroll-viewport" style="height: 200%">
+  <div  *cdkVirtualFor="let currentJoke of dataSource">
+    <div *ngIf="currentJoke">
+      <cnt-joke [thejoke]="currentJoke">
+    </cnt-joke>
+   </div>
+    <div *ngIf="!currentJoke" class="spinner-border" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
   </cdk-virtual-scroll-viewport>
   
   `,
@@ -19,51 +28,59 @@ import {Joke} from '../joke/joke'
 })
 export class ScrollerComponent implements OnInit {
 
-  jokestab: any =[
-    {
-      id: 1,
-      error: false,
-      category:"string",
-      joke:"C'est un mec il s'appelle niet et son pote arrive et il dit coucou niet !",
-      lang:"eng"
-    },
-    {
-      id: 2,
-      error: false,
-      category:"string",
-      joke:"C'est un mec il s'appelle niet et son pote arrive et il dit coucou niet !",
-      lang:"eng"
-    },
-    {
-      id: 3,
-      error: false,
-      category:"string",
-      joke:"C'est un mec il s'appelle niet et son pote arrive et il dit coucou niet !",
-      lang:"eng"
-    },
-  ];
+  dataSource: JokesDataSource;
+
+  
   constructor(public apiget: ApigetService) { 
-    
+    this.dataSource=  new JokesDataSource(apiget);
   }
 
   ngOnInit(): void {
-    this.fetchJokes();
-    
-    console.log(this.jokestab)
+  
   }
 
-  fetchJokes(){
-    this.apiget.getJokes().subscribe(data =>{
-      for(const d of (data.jokes as any)){
-        this.jokestab.push({
-          id: d.id,
-          error: d.error,
-          category: d.category,
-          joke: d.joke,
-          lang:d.lang
-        })
+}
+
+export class JokesDataSource extends DataSource<Joke | undefined> {
+  private cachedJokes = Array.from<Joke>({ length: 0 });
+  private dataStream = new BehaviorSubject<(Joke | undefined)[]>(this.cachedJokes);
+  private subscription = new Subscription();
+ 
+
+  private pageSize = 10;
+private lastPage = 0;
+constructor(public apiget: ApigetService) {
+  super();
+  this._fetchFactPage();
+}
+
+private _fetchFactPage(): void {
+  for (let i = 0; i < this.pageSize; ++i) {
+   this.apiget.getJokes().subscribe(data =>{
+     this.cachedJokes = this.cachedJokes.concat(data)
+     this.dataStream.next(this.cachedJokes);
+   });
+  }
+}
+
+private _getPageForIndex(i: number): number {
+  return Math.floor(i / this.pageSize);
+}
+  connect(collectionViewer: CollectionViewer): Observable<(Joke | undefined)[] | ReadonlyArray<Joke | undefined>> {
+    this.subscription.add(collectionViewer.viewChange.subscribe(range => {
+      const currentPage = this._getPageForIndex(range.end);
+
+      if (currentPage > this.lastPage) {
+        this.lastPage = currentPage;
+        this._fetchFactPage();
       }
-    })
+  
+    
+    }));
+    return this.dataStream;
   }
 
+  disconnect(collectionViewer: CollectionViewer): void {
+    this.subscription.unsubscribe();
+  }
 }
