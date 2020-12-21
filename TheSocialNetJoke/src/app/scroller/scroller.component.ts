@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApigetService } from '../apiget.service';
-import {Joke}from '../joke/joke';
+import {Joke} from '../joke/joke'
 
 @Component({
   selector: 'cnt-scroller',
@@ -10,7 +10,6 @@ import {Joke}from '../joke/joke';
 
 
   <cnt-joke *cdkVirtualFor="let currentJoke of jokestab" [thejoke]="currentJoke">
-  
   </cnt-joke>
   </cdk-virtual-scroll-viewport>
   
