@@ -13,8 +13,8 @@ export class ApigetService {
    constructor(private httpClient: HttpClient) { }
 
 
-  getJokes(): Observable<Joke> {
-    return this.httpClient.get<Joke>(this.myUrl)
+  getJokes():any  {
+    return this.httpClient.get(this.myUrl)
     
   }
 
