@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Joke } from './joke/joke';
+import { Joke } from './nav-bar/joke/joke';
 import { Observable, throwError } from 'rxjs';
 
 @Injectable({

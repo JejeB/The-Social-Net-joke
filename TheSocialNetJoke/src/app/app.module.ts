@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ScrollerComponent } from './scroller/scroller.component';
-import { JokeComponent } from './joke/joke.component';
+import { JokeComponent } from './nav-bar/joke/joke.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SettingsComponent } from './settings/settings.component';
 
