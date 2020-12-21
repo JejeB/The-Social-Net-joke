@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Joke } from './joke';
 
 @Component({
   selector: 'cnt-joke',
   template: `
-  <div class="card">
+  <div class="card jokeCard">
   <div class="card-body">
   {{thejoke.joke}}
   </div>
@@ -17,17 +17,11 @@ import { Joke } from './joke';
   </div>
 </div>
   `,
-  styles: ['.emoji{margin: inherit;}'
+  styles: ['.emoji{margin: inherit;} .jokeCard{margin-top: 1rem;}'
   ]
 })
 export class JokeComponent implements OnInit {
-  thejoke :Joke={
-    id: 1,
-    error: false,
-    category:"string",
-    joke:"C'est un mec il s'appelle niet et son pote arrive et il dit coucou niet !",
-    lang:"eng"
-  };
+  @Input() thejoke: Joke;
 
   constructor() { }
 

@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
       </h1>
       <div class="row">
       <cnt-nav-bar class="col-sm"></cnt-nav-bar>
-      <cnt-scroller class="col-sm"></cnt-scroller>
+      <cnt-scroller class="col-6"></cnt-scroller>
       <cnt-settings class="col-sm"></cnt-settings>
       </div>
      
