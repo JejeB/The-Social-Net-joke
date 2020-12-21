@@ -7,7 +7,8 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ApigetService {
-    lang : String ="en"
+    
+  lang : String ="en"
    myUrl = 'https://sv443.net/jokeapi/v2/joke/Any?lang='+this.lang+'&type=single&amount=10';
 
 

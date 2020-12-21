@@ -8,6 +8,8 @@ import { ScrollerComponent } from './scroller/scroller.component';
 import { JokeComponent } from './joke/joke.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SettingsComponent } from './settings/settings.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -20,6 +22,7 @@ import { SettingsComponent } from './settings/settings.component';
     SettingsComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     ScrollingModule,

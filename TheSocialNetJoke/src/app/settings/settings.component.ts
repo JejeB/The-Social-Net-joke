@@ -1,40 +1,104 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'cnt-settings',
   template: `
 
-<h2>Language Settings</h2>
-  <p><button type="button" class="btn btn-primary">French</button></p>
-  <p><button type="button" class="btn btn-primary">English</button></p>
-  <p><button type="button" class="btn btn-primary">German</button></p>
-  <p><button type="button" class="btn btn-primary">Spanish</button></p>
-  <p><button type="button" class="btn btn-primary">Czech</button></p>
+<h2>Language Settings</h2><div class="row">
+  <p><button type="button" class="btn btn-primary col-sm" (click)="english()">English</button></p>
+  <p><button type="button" class="btn btn-primary col-sm" (click)="german()">German</button></p>
+  <p><button type="button" class="btn btn-primary col-sm" (click)="spanish()">Spanish</button></p>
+  <p><button type="button" class="btn btn-primary col-sm" (click)="czech()">Czech</button></p>
   <p></p>
-<h2>Blacklist</h2>
-<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
-  <label class="form-check-label" for="flexSwitchCheck">nsfw</label>
+  </div>
+<h2>Blacklist</h2><div class="row">
+
+
+
+
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" [(ngModel)]="nfsw" (change)="Event_nsfw()">
+  <label class="form-check-label" for="defaultCheck1" >nsfw</label>
 </div>
-<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-  <label class="form-check-label" for="flexSwitchCheck">religious</label>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" [(ngModel)]="religious" (change)="Event_religious()">
+  <label class="form-check-label" for="defaultCheck1" >religious</label>
 </div>
-<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-  <label class="form-check-label" for="flexSwitchCheck">political</label>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" [(ngModel)]="political" (change)="Event_political()">
+  <label class="form-check-label" for="defaultCheck1" >political</label>
 </div>
-<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-  <label class="form-check-label" for="flexSwitchCheck">religious</label>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" [(ngModel)]="racist" (change)="Event_racist()">
+  <label class="form-check-label" for="defaultCheck1" >racist</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" [(ngModel)]="sexist" (change)="Event_sexist()">
+  <label class="form-check-label" for="defaultCheck1">sexist</label>
 </div>
 
    
   `,
-  styles: [
-  ]
+  styles: ['span.selected { background: lightgray }']
 })
 export class SettingsComponent implements OnInit {
+  lang: string = "en"
+  english(){
+    this.lang = "en"
+    console.log(this.lang)
+    return this.lang;
+  }
+  german(){
+    this.lang = "de"
+    console.log(this.lang)
+    return this.lang;
+  }
+  spanish(){
+    this.lang = "es"
+    console.log(this.lang)
+    return this.lang;
+  }
+  czech(){
+    this.lang = "cs"
+    console.log(this.lang)
+    return this.lang;
+  }
+
+
+  nfsw: false;
+  religious: false;
+  political: false;
+  racist: false;
+  sexist: false;
+  
+
+
+  Event_nsfw(){
+    console.log('nfsw change called');
+    console.log(this.nfsw);
+  }
+
+  Event_religious(){
+    console.log('religious change called');
+    console.log(this.religious);
+  }
+
+  Event_political(){
+    console.log('political change called');
+    console.log(this.political);
+  }
+
+  Event_racist(){
+    console.log('racist change called');
+    console.log(this.racist)
+  }
+
+  Event_sexist(){
+    console.log('sexist change called');
+    console.log(this.sexist);
+  }
 
   constructor() { }
 
