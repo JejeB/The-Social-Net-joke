@@ -8,7 +8,7 @@ import { Observable, throwError } from 'rxjs';
 })
 export class ApigetService {
     lang : String ="en"
-   myUrl = 'https://sv443.net/jokeapi/v2/joke/Any?lang='+this.lang+'&type=single&amount=10';
+   myUrl = 'https://sv443.net/jokeapi/v2/joke/Any?lang='+this.lang+'&type=single';
 
 
    constructor(private httpClient: HttpClient) { }
