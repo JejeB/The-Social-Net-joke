@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CookieManagerService } from '../cookie-manager.service';
 
 
 @Component({
@@ -38,7 +39,7 @@ import { FormsModule } from '@angular/forms';
   <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" [(ngModel)]="sexist" (change)="Event_sexist()">
   <label class="form-check-label" for="defaultCheck1">sexist</label>
 </div>
-
+<button type="button" class="btn btn-success" (click)="apply()">Apply</button>
    
   `,
   styles: ['span.selected { background: lightgray }']
@@ -46,24 +47,16 @@ import { FormsModule } from '@angular/forms';
 export class SettingsComponent implements OnInit {
   lang: string = "en"
   english(){
-    this.lang = "en"
-    console.log(this.lang)
-    return this.lang;
+    this.lang='en'
   }
   german(){
-    this.lang = "de"
-    console.log(this.lang)
-    return this.lang;
+    this.lang='de'
   }
   spanish(){
-    this.lang = "es"
-    console.log(this.lang)
-    return this.lang;
+    this.lang='es'
   }
   czech(){
-    this.lang = "cs"
-    console.log(this.lang)
-    return this.lang;
+    this.lang='cs'
   }
 
 
@@ -100,7 +93,11 @@ export class SettingsComponent implements OnInit {
     console.log(this.sexist);
   }
 
-  constructor() { }
+  apply(){
+    this.cm.langUpdate(this.lang)
+  }
+
+  constructor(private cm: CookieManagerService) { }
 
   ngOnInit(): void {
   }
