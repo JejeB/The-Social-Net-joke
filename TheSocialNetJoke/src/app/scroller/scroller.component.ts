@@ -16,9 +16,7 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
       <cnt-joke [thejoke]="currentJoke">
     </cnt-joke>
    </div>
-    <div *ngIf="!currentJoke" class="spinner-border" role="status">
-      <span class="sr-only"></span>
-    </div>
+    
   </div>
   </cdk-virtual-scroll-viewport>
   
