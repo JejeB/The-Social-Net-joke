@@ -36,10 +36,10 @@ import { Joke } from './joke';
     <i class="material-icons col-sm" style="background:coral" >sentiment_dissatisfied</i>
   </div>
   <div class="col-sm" *ngIf="!selected[0]">
-    <i class="material-icons col-sm" (click)="rank(0)" >sentiment_dissatisfied</i>
+    <i class="material-icons col-sm" (click)="rank(0)" >sentiment_very_dissatisfied</i>
   </div>
   <div class="col-sm" *ngIf="selected[0]">
-    <i class="material-icons col-sm" style="background:coral" >sentiment_dissatisfied</i>
+    <i class="material-icons col-sm" style="background:coral" >sentiment_very_dissatisfied</i>
   </div>
   
   
