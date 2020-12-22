@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent } from './app.component';
 import { ScrollerComponent } from './scroller/scroller.component';
@@ -16,7 +17,7 @@ import { componentFactoryName } from '@angular/compiler';
 
 
 const appRoutes: Routes = [
-  
+
   {
       path: 'add-joke',
       component: AddJokeComponent
@@ -29,17 +30,19 @@ const appRoutes: Routes = [
   ];
 
 
+
 @NgModule({
-  
+
   declarations: [
     AppComponent,
     ScrollerComponent,
     JokeComponent,
     AddJokeComponent,
     NavBarComponent,
-    SettingsComponent
+    SettingsComponent,
+
   ],
-  
+
   imports: [
     FormsModule,
     BrowserModule,
@@ -47,11 +50,7 @@ const appRoutes: Routes = [
     ScrollingModule,
     RouterModule.forRoot(appRoutes),
   ],
-
-  providers: [],
-  
-  bootstrap: [AppComponent],
-
-  exports: [RouterModule]
+  providers: [CookieService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
