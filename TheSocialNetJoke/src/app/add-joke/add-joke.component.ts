@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
       add-joke works!
     </p>
   `,
-  styles: [
-  ]
+  styles: ['span.selected { background: lightgray }']
 })
 export class AddJokeComponent implements OnInit {
 

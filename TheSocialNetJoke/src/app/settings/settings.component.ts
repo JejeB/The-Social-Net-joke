@@ -43,6 +43,8 @@ import { FormsModule } from '@angular/forms';
   `,
   styles: ['span.selected { background: lightgray }']
 })
+
+
 export class SettingsComponent implements OnInit {
   lang: string = "en"
   english(){

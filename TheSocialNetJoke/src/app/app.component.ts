@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 
+
 @Component({
   selector: 'cnt-root',
   template: `
@@ -10,15 +11,18 @@ import { Component } from '@angular/core';
         Welcome to {{title}}!
       </h1>
       <div class="row">
-      <cnt-nav-bar class="col-sm"></cnt-nav-bar>
-      <cnt-scroller class="col-6"></cnt-scroller>
-      <cnt-settings class="col-sm"></cnt-settings>
+      <div class="col-sm"><cnt-nav-bar></cnt-nav-bar></div>
+      <div class="col-8"><router-outlet></router-outlet></div>
+      <div class="col-sm"><cnt-settings></cnt-settings></div>
       </div>
-     
-    
+      
   `,
   styles: []
 })
 export class AppComponent {
   title = 'TheSocialNetJoke';
 }
+/*
+ <cnt-scroller class="col-6"></cnt-scroller>
+      <cnt-add-joke class="col-sm"></cnt-add-joke>
+*/
