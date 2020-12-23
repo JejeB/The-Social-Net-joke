@@ -9,7 +9,12 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
   selector: 'cnt-scroller',
   template: `
   
-  
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Home : </h1>
+    
+  </div>
+</div>
   <cdk-virtual-scroll-viewport itemSize="100" class="fact-scroll-viewport" style="height: 200%">
   <div  *cdkVirtualFor="let currentJoke of dataSource">
     <div *ngIf="currentJoke">

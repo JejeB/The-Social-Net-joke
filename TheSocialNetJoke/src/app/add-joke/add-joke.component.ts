@@ -6,7 +6,12 @@ import { Joke } from '../joke/joke';
   template: `
   
 
-    <h2>Add a joke :</h2>
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Add Joke : </h1>
+    
+  </div>
+</div>
 
     <hr>
 
