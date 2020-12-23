@@ -99,10 +99,31 @@ export class CookieManagerService {
       ["Christmas",10]
   ]);
   let cat:string;
-  //UPDATE TAB BY COOKIE
+  //UPDATE MAP BY COOKIE
+  pref=this.UpdateMap(pref)
+  console.log(pref)
+  //Choose randomly using the map
   cat=this.RadomChoice(pref)
 
     return this.RadomChoice(pref)
+  }
+  UpdateMap(pref){
+    if (this.cookieService.get('rank')) { //Test if the cookie is not empty
+      let tabJoke = JSON.parse(this.cookieService.get('rank'))
+    for(let i=0;i<tabJoke.length;i++){
+      pref.forEach((value: number, key: string) => {        //Get a random category using pref map the value influence the chance to get more or less to get the category 
+       if (key==tabJoke[i].category) {
+         pref.set(key,value+6*tabJoke[i].note)
+       }else{
+          pref.set(key,value-tabJoke[i].note)
+       }
+        
+    });
+
+    }
+    }
+    
+    return pref
   }
 
   RadomChoice(pref){
