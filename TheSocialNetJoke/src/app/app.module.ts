@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
-import { CookieService } from 'ngx-cookie-service';
+import { CookieModule } from 'ngx-cookie';
 
 import { AppComponent } from './app.component';
 import { ScrollerComponent } from './scroller/scroller.component';
@@ -49,8 +49,9 @@ const appRoutes: Routes = [
     HttpClientModule,
     ScrollingModule,
     RouterModule.forRoot(appRoutes),
+    CookieModule.forRoot(),
   ],
-  providers: [CookieService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
