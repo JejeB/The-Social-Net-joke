@@ -15,6 +15,7 @@ Dans la partie droite de l'app on retrouve les settings qui permet de regler la 
 
 Using Jokes API v2 
 
+Can delete cookies
 
 
 ## Guide de lancement
