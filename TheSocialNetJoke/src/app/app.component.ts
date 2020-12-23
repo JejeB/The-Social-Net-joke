@@ -22,7 +22,3 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'TheSocialNetJoke';
 }
-/*
- <cnt-scroller class="col-6"></cnt-scroller>
-      <cnt-add-joke class="col-sm"></cnt-add-joke>
-*/

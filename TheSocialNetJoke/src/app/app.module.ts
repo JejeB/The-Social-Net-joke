@@ -10,14 +10,17 @@ import { ScrollerComponent } from './scroller/scroller.component';
 import { JokeComponent } from './joke/joke.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SettingsComponent } from './settings/settings.component';
-import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AddJokeComponent } from './add-joke/add-joke.component';
 import { componentFactoryName } from '@angular/compiler';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const appRoutes: Routes = [
-
+  {
+      path: '',
+      component: ScrollerComponent    
+  }, 
   {
       path: 'add-joke',
       component: AddJokeComponent
@@ -49,6 +52,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     ScrollingModule,
     RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
