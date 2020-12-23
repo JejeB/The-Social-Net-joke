@@ -47,7 +47,7 @@ export class ApigetService {
       this.myUrl=this.myUrl+'racist,'
     }
     this.myUrl= this.myUrl.slice(0,this.myUrl.length-1)
-    console.log(this.myUrl)
+    //console.log(this.myUrl)
   }
 
 

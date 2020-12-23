@@ -56,6 +56,7 @@ import { CookieManagerService } from '../cookie-manager.service';
   <label class="form-check-label" for="defaultCheck1">sexist</label>
 </div>
 <button type="button" class="btn btn-success" (click)="apply()" routerLink="/scroller" routerLinkActive="active">Apply</button>
+<button type="button" class="btn btn-danger" (click)="deleteAll()" routerLink="/scroller" routerLinkActive="active">Delete All cookies</button>
    
   `,
   styles: ['span.selected { background: lightgray }']
@@ -111,6 +112,9 @@ export class SettingsComponent implements OnInit {
     
     this.cm.langUpdate(this.lang)
     this.cm.FlagsUpdate(this.flags)
+  }
+  deleteAll(){
+    this.cm.deleteCookies()
   }
 
   constructor(private cm: CookieManagerService) { }

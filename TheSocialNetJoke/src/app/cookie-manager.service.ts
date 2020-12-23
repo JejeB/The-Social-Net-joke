@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
+import { Joke } from './joke/joke';
 
 
 @Injectable({
@@ -21,6 +22,38 @@ export class CookieManagerService {
    this.cookieService.put('flags',mySerialMap)
    
   }
+  RankingUpdate(joke:Joke){
+    if(this.cookieService.get('rank')){
+      let tabJoke = JSON.parse(this.cookieService.get('rank'))
+
+      //Check And replace if it is a rank on the same joke
+      tabJoke=this.CheckAndReplace(tabJoke,joke);
+      
+      console.log(tabJoke)
+      this.cookieService.put('rank',JSON.stringify(tabJoke))
+
+    }else{
+      console.log('Ranking cooking not create')
+     // console.log(joke)
+      let tabJoke: Array<Joke>=[];
+      tabJoke.push(joke)
+
+      this.cookieService.put('rank',JSON.stringify(tabJoke))
+      console.log(JSON.parse(this.cookieService.get('rank')))
+    }
+  }
+  
+  CheckAndReplace(tabJoke,joke){
+    for(let i=0;i<tabJoke.length;i++){
+      if(tabJoke[i].id==joke.id){
+        tabJoke[i].note=joke.note;
+        return tabJoke
+      }
+    }
+    tabJoke.push(joke)
+    return tabJoke
+  }
+  
 
   getLang(){
     let s:string;
@@ -51,6 +84,9 @@ export class CookieManagerService {
     
     return myMap;
     
+  }
+  deleteCookies(){
+    this.cookieService.removeAll()
   }
 
 }
