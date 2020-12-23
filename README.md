@@ -21,7 +21,6 @@ Using Jokes API v2
 Télécharger le projet via github:
 ```
 git clone https://github.com/JejeB/The-Social-Net-joke
-
 ```
 
 Aller dans le répertoire du projet:
