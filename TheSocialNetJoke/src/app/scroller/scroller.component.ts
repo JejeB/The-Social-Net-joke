@@ -18,6 +18,13 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
    </div>
     
   </div>
+  <div >
+  
+  <div class="spinner-border" role="status">
+  <span class="sr-only"></span>
+</div>
+
+  </div>
   </cdk-virtual-scroll-viewport>
   
   `,

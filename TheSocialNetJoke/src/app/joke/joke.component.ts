@@ -14,6 +14,11 @@ import { Joke } from './joke';
       <p>{{thejoke.setup}}</p>
       <p>{{thejoke.delivery}}</p>  
     </div>
+    <div *ngIf="thejoke.error">
+    <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+    </div>
   </div>
   <div class="card-footer text-muted row emoji" >
 
