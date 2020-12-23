@@ -14,8 +14,7 @@ import { CookieManagerService } from '../cookie-manager.service';
   <p *ngIf="lang=='de'"><button type="button" class="btn btn-primary col-sm" (click)="german()">German</button></p>
   <p *ngIf="lang!='de'"><button type="button" class="btn btn-secondary col-sm" (click)="german()">German</button></p>
 
-  <p *ngIf="lang=='es'"><button type="button" class="btn btn-primary col-sm" (click)="spanish()">Spanish</button></p>
-  <p *ngIf="lang!='es'"><button type="button" class="btn btn-secondary col-sm" (click)="spanish()">Spanish</button></p>
+
 
   <p *ngIf="lang=='cs'"><button type="button" class="btn btn-primary col-sm" (click)="czech()">Czech</button></p>
   <p *ngIf="lang!='cs'"><button type="button" class="btn btn-secondary col-sm" (click)="czech()">Czech</button></p>

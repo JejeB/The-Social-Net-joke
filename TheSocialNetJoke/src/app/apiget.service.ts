@@ -17,15 +17,15 @@ export class ApigetService {
 
   getJokes():any  {
     this.constructUrl();
-   
+    console.log(this.myUrl)
     return this.httpClient.get(this.myUrl) // Send the request GET and get the value in JSON of the awnser 
 
   }
   constructUrl(){
     
-    this.myUrl='https://sv443.net/jokeapi/v2/joke/Any?lang='+this.cm.getLang()+'&blacklistFlags='; // Get the langage in the cookie
+    this.myUrl='https://sv443.net/jokeapi/v2/joke/'+this.cm.getCategoryIA()+'?lang='+this.cm.getLang()+'&blacklistFlags='; // Get the langage in the cookie
     this.addFlags() //Add the blacklist flag to the URL
-
+    
   }
 
   addFlags(){
@@ -47,7 +47,7 @@ export class ApigetService {
       this.myUrl=this.myUrl+'racist,'
     }
     this.myUrl= this.myUrl.slice(0,this.myUrl.length-1)
-    //console.log(this.myUrl)
+    //
   }
 
 

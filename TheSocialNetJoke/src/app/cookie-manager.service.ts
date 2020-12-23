@@ -89,4 +89,36 @@ export class CookieManagerService {
     this.cookieService.removeAll()
   }
 
+  getCategoryIA(){
+    let pref = new Map([
+      [ "Programming", 10 ],
+      [ "Miscellaneous", 10 ],
+      [ "Dark", 10 ],     // This is a map of preference for the user at the begining all categori have the same score, if you make a like that will up the category and down the other
+      [ "Pun", 10 ],
+      [ "Spooky", 10 ],
+      ["Christmas",10]
+  ]);
+  let cat:string;
+  //UPDATE TAB BY COOKIE
+  cat=this.RadomChoice(pref)
+
+    return this.RadomChoice(pref)
+  }
+
+  RadomChoice(pref){
+    let rand :number = Math.floor(Math.random() * 60) + 1 
+    //console.log(rand)
+    let somme:number=0;
+    let cat:string='Any' 
+    pref.forEach((value: number, key: string) => {        //Get a random category using pref map the value influence the chance to get more or less to get the category 
+      somme=somme+value
+      if (rand>somme && rand<somme+value) {
+        //console.log(rand +" : "+key)
+        cat=key
+      }
+      
+  });
+  return cat
+  }
+ 
 }
