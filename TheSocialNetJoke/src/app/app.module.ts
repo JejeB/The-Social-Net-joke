@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
-import { CookieService } from 'ngx-cookie-service';
+import { CookieModule } from 'ngx-cookie';
 
 import { AppComponent } from './app.component';
 import { ScrollerComponent } from './scroller/scroller.component';
@@ -19,8 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const appRoutes: Routes = [
   {
       path: '',
-      component: ScrollerComponent    
-  }, 
+      component: ScrollerComponent
+  },
   {
       path: 'add-joke',
       component: AddJokeComponent
@@ -52,9 +52,10 @@ const appRoutes: Routes = [
     HttpClientModule,
     ScrollingModule,
     RouterModule.forRoot(appRoutes),
+    CookieModule.forRoot(),
     ReactiveFormsModule
   ],
-  providers: [CookieService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
