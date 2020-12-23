@@ -23,16 +23,16 @@ import { Joke } from './joke';
   <div class="card-footer text-muted row emoji" >
 
   <div class="col-sm" *ngIf="thejoke.note!=2"><i class="material-icons col-sm" (click)="rank(2)" >sentiment_very_satisfied</i></div>
-  <div class="col-sm" *ngIf="thejoke.note==2"><i class="material-icons col-sm" style="background:coral" (click)="deselectAll()">sentiment_very_satisfied</i></div>
+  <div class="col-sm" *ngIf="thejoke.note==2"><i class="material-icons col-sm" style="background:coral" (click)="rank(0)">sentiment_very_satisfied</i></div>
   
   <div class="col-sm" *ngIf="thejoke.note!=1"><i class="material-icons col-sm" (click)="rank(1)" >sentiment_satisfied</i></div>
-  <div class="col-sm" *ngIf="thejoke.note==1"><i class="material-icons col-sm" style="background:coral" (click)="deselectAll()">sentiment_satisfied</i></div>
+  <div class="col-sm" *ngIf="thejoke.note==1"><i class="material-icons col-sm" style="background:coral" (click)="rank(0)">sentiment_satisfied</i></div>
 
   <div class="col-sm" *ngIf="thejoke.note!=-1"><i class="material-icons col-sm" (click)="rank(-1)" >sentiment_dissatisfied</i></div>
-  <div class="col-sm" *ngIf="thejoke.note==-1"> <i class="material-icons col-sm" style="background:coral" (click)="deselectAll()">sentiment_dissatisfied</i></div>
+  <div class="col-sm" *ngIf="thejoke.note==-1"> <i class="material-icons col-sm" style="background:coral" (click)="rank(0)">sentiment_dissatisfied</i></div>
 
   <div class="col-sm" *ngIf="thejoke.note!=-2"><i class="material-icons col-sm" (click)="rank(-2)" >sentiment_very_dissatisfied</i></div>
-  <div class="col-sm" *ngIf="thejoke.note==-2"><i class="material-icons col-sm" style="background:coral" (click)="deselectAll()">sentiment_very_dissatisfied</i></div>
+  <div class="col-sm" *ngIf="thejoke.note==-2"><i class="material-icons col-sm" style="background:coral" (click)="rank(0)">sentiment_very_dissatisfied</i></div>
   
   
   
@@ -52,6 +52,7 @@ export class JokeComponent implements OnInit {
  
   ngOnInit(): void {
     //console.log(this.thejoke)
+    this.thejoke.note=this.cm.getRankById(this.thejoke.id)
   }
 
   rank(n:number){

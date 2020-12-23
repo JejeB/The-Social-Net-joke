@@ -27,6 +27,7 @@ export class ApigetService {
     this.addFlags() //Add the blacklist flag to the URL
     
   }
+  
 
   addFlags(){
     let flags = this.cm.getFlags()

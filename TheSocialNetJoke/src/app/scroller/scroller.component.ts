@@ -19,7 +19,7 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
     
   </div>
   <div >
-  
+        API got a max request on 60 per minute please retry later
   <div class="spinner-border" role="status">
   <span class="sr-only"></span>
 </div>

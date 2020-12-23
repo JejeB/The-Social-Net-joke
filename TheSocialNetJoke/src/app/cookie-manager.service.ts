@@ -126,6 +126,20 @@ export class CookieManagerService {
     return pref
   }
 
+  getRankById(id){
+    if (this.cookieService.get('rank')) { //Test if the cookie is not empty
+      let tabJoke = JSON.parse(this.cookieService.get('rank'))
+      for(let i=0;i<tabJoke.length;i++){
+        if(tabJoke[i].id==id){
+          return tabJoke[i].note;
+        }
+      }
+    
+    }else{
+      return 0
+    }
+  }
+
   RadomChoice(pref){
     let rand :number = Math.floor(Math.random() * 60) + 1 
     //console.log(rand)
