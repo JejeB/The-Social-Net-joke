@@ -16,4 +16,25 @@ Dans la partie droite de l'app on retrouve les settings qui permet de regler la 
 Using Jokes API v2 
 
 
-#
+
+## Guide de lancement
+Télécharger le projet via github:
+```
+git clone https://github.com/JejeB/The-Social-Net-joke
+
+```
+
+Aller dans le répertoire du projet:
+```
+cd The-Social-Net-joke
+```
+
+Build le projet:
+```
+npm install
+```
+
+Et lancer angular ```angular server```:
+```
+ng serve 
+```
