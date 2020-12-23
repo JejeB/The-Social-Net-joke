@@ -1,5 +1,5 @@
 # The-Social-Net-joke
-Angular API client
+Ton site de blague préféré
 
 
   <img alt="Angular" src="https://img.shields.io/badge/-Angular-DD0031?logo=angular&logoColor=white"/> <img alt="npm" src="https://img.shields.io/badge/-NPM-CB3837?logo=npm&logoColor=white"/> <img alt="Bootstrap" src="https://img.shields.io/badge/-Bootstrap-757575?logo=Bootstrap&logoColor=white"/> <img alt="Git" src="https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white"/> <img alt="Github" src="https://img.shields.io/badge/-Github-181717?logo=github&logoColor=white"/> <img alt="VSCode" src="https://img.shields.io/badge/-VSCode-007ACC?logo=visual-studio-code&logoColor=white"/>
